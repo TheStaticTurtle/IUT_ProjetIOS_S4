@@ -13,6 +13,7 @@
 		ADE3442625F0D43300412262 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE3442425F0D43300412262 /* Main.storyboard */; };
 		ADE3442825F0D43300412262 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADE3442725F0D43300412262 /* Assets.xcassets */; };
 		ADE3442B25F0D43300412262 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE3442925F0D43300412262 /* LaunchScreen.storyboard */; };
+		ADE3443425F0D95E00412262 /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3443325F0D95E00412262 /* NotesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		ADE3442725F0D43300412262 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADE3442A25F0D43300412262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADE3442C25F0D43300412262 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADE3443325F0D95E00412262 /* NotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				ADE3442725F0D43300412262 /* Assets.xcassets */,
 				ADE3442925F0D43300412262 /* LaunchScreen.storyboard */,
 				ADE3442C25F0D43300412262 /* Info.plist */,
+				ADE3443325F0D95E00412262 /* NotesTableViewController.swift */,
 			);
 			path = ProjetIOS;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADE3442325F0D43300412262 /* ViewController.swift in Sources */,
+				ADE3443425F0D95E00412262 /* NotesTableViewController.swift in Sources */,
 				ADE3441F25F0D43300412262 /* AppDelegate.swift in Sources */,
 				ADE3442125F0D43300412262 /* SceneDelegate.swift in Sources */,
 			);
