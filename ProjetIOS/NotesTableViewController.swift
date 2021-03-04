@@ -40,6 +40,9 @@ class NotesTableViewController: UITableViewController {
         return notes.count
     }
 
+    @IBAction func unwindFromAddEdit(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
+        
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
