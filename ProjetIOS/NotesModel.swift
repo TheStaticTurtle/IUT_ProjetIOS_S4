@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Location {
+struct LocationModel {
     var latitude: Double
     var longitude: Double
 }
@@ -15,6 +15,6 @@ struct Location {
 struct NotesModel {
     var title: String;
     var content: String;
-    var lastModificatinoDate: Date;
-    var localisation: Location;
+    var lastModificationDate: Date;
+    var localisation: LocationModel;
 }
