@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC11CBC325FA201E00977718 /* AddEditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11CBC225FA201E00977718 /* AddEditTableViewController.swift */; };
 		ADE3441F25F0D43300412262 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3441E25F0D43300412262 /* AppDelegate.swift */; };
 		ADE3442125F0D43300412262 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3442025F0D43300412262 /* SceneDelegate.swift */; };
 		ADE3442325F0D43300412262 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3442225F0D43300412262 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC11CBC225FA201E00977718 /* AddEditTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditTableViewController.swift; sourceTree = "<group>"; };
 		ADE3441B25F0D43300412262 /* ProjetIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE3441E25F0D43300412262 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADE3442025F0D43300412262 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				ADE3442C25F0D43300412262 /* Info.plist */,
 				ADE3443325F0D95E00412262 /* NotesTableViewController.swift */,
 				ADE3443625F0D9A600412262 /* NotesModel.swift */,
+				AC11CBC225FA201E00977718 /* AddEditTableViewController.swift */,
 			);
 			path = ProjetIOS;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC11CBC325FA201E00977718 /* AddEditTableViewController.swift in Sources */,
 				ADE3442325F0D43300412262 /* ViewController.swift in Sources */,
 				ADE3443425F0D95E00412262 /* NotesTableViewController.swift in Sources */,
 				ADE3441F25F0D43300412262 /* AppDelegate.swift in Sources */,

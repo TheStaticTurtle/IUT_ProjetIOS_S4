@@ -9,12 +9,13 @@ import UIKit
 
 class NotesTableViewController: UITableViewController {
     let dateFormatterFR = DateFormatter();
+    
     var notes: [NotesModel] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dateFormatterFR.dateFormat = "dd/mm/yyyy";
+        dateFormatterFR.dateFormat = "dd/MM/yyyy";
         
         notes = [
             NotesModel(title: "TestA", content: "azertyuiop", lastModificationDate: dateFormatterFR.date(from: "17/12/2001")!, localisation:  LocationModel(latitude:0, longitude:0)),
@@ -39,10 +40,8 @@ class NotesTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return notes.count
     }
-
-    @IBAction func unwindFromAddEdit(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
-        
-    }
+    
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
@@ -55,7 +54,24 @@ class NotesTableViewController: UITableViewController {
         return cell
     }
     
+    @IBAction func unwindToEmojiTableView(segue: UIStoryboardSegue) {
+        if segue.identifier == "saveUnwind" {
+            let sourceVC = segue.source as! AddEditTableViewController
+            
+            if let note = sourceVC.note {
+                if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                    // Modification d'un emoji
+                    self.notes[selectedIndexPath.row] = note
+                    tableView.reloadData()
+                } else {
+                    // Création d'un emoji
+                    self.notes.append(note)
+                    tableView.reloadData()
+                }
+            }
 
+        }
+    }
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -95,14 +111,21 @@ class NotesTableViewController: UITableViewController {
     }*/
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "editSegue" {
+            let indexPath = tableView.indexPathForSelectedRow!
+            let note = notes[indexPath.row]
+            let navController = segue.destination as! UINavigationController
+            let addEditVC = navController.topViewController as! AddEditTableViewController
+            addEditVC.note = note
+        }
     }
-    */
+    
 
 }
