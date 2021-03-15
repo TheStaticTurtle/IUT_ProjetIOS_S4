@@ -148,6 +148,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mapView" destination="kVR-u0-8Qf" id="1HV-J3-KLF"/>
                         <outlet property="noteTF" destination="oqE-cm-wHe" id="SS6-Pm-UDe"/>
                         <outlet property="titleTF" destination="Vaw-YS-DFd" id="SZX-oI-Jcx"/>
                     </connections>
