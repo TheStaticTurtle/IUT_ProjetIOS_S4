@@ -15,12 +15,12 @@ class NotesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dateFormatterFR.dateFormat = "dd/MM/yyyy";
+        dateFormatterFR.dateFormat = "dd/MM/yyyy HH:mm:ss";
         
         notes = [
-            NotesModel(title: "TestA", content: "azertyuiop", lastModificationDate: dateFormatterFR.date(from: "17/12/2001")!, localisation:  LocationModel(latitude:0, longitude:0)),
-            NotesModel(title: "TestB", content: "qwertyuiop", lastModificationDate: dateFormatterFR.date(from: "04/03/2021")!, localisation:  LocationModel(latitude:0, longitude:0)),
-            NotesModel(title: "TestC", content: "abcdefghij", lastModificationDate: dateFormatterFR.date(from: "25/02/2020")!, localisation:  LocationModel(latitude:0, longitude:0)),
+            NotesModel(title: "TestA", content: "azertyuiop", lastModificationDate: dateFormatterFR.date(from: "17/12/2001 15:05:00")!, localisation:  LocationModel(latitude:0, longitude:0)),
+            NotesModel(title: "TestB", content: "qwertyuiop", lastModificationDate: dateFormatterFR.date(from: "04/03/2021 23:37:56")!, localisation:  LocationModel(latitude:0, longitude:0)),
+            NotesModel(title: "TestC", content: "abcdefghij", lastModificationDate: dateFormatterFR.date(from: "25/02/2020 08:00:00")!, localisation:  LocationModel(latitude:0, longitude:0)),
         ]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

@@ -131,7 +131,15 @@ class AddEditTableViewController: UITableViewController,CLLocationManagerDelegat
             dateFormatterFR.dateFormat = "dd/MM/yyyy";
            
             
-            self.note = NotesModel(title: title, content: content, lastModificationDate: dateFormatterFR.date(from: dateFormatterFR.string(from: Date()))!, localisation: LocationModel(latitude:self.pin.coordinate.latitude, longitude:self.pin.coordinate.longitude))
+            self.note = NotesModel(
+                title: title,
+                content: content,
+                lastModificationDate: Date(),
+                localisation: LocationModel(
+                    latitude:self.pin.coordinate.latitude,
+                    longitude:self.pin.coordinate.longitude
+                )
+            )
         }
     }
     
