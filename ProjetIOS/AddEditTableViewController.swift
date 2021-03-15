@@ -16,7 +16,8 @@ class AddEditTableViewController: UITableViewController,CLLocationManagerDelegat
     
     @IBOutlet weak var mapView: MKMapView!
     var note: NotesModel?
-    var pin: MKPointAnnotation!
+    var pin = MKPointAnnotation()
+    var coord:CLLocationCoordinate2D?
     
     let mananager = CLLocationManager()
     override func viewDidLoad() {
@@ -31,9 +32,21 @@ class AddEditTableViewController: UITableViewController,CLLocationManagerDelegat
             mananager.delegate = self
             mananager.requestWhenInUseAuthorization();
             mananager.startUpdatingLocation()
+            render(CLLocation(latitude: 47.640145, longitude: 6.857318))
         }
+
+        let longTapGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap))
+            mapView.addGestureRecognizer(longTapGesture)
         
-        
+    }
+    
+    @objc func longTap(sender: UIGestureRecognizer){
+        print("long tap")
+        if sender.state == .began {
+            let locationInView = sender.location(in: mapView)
+            coord = mapView.convert(locationInView, toCoordinateFrom: mapView)
+            pin.coordinate=coord!
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -57,7 +70,6 @@ class AddEditTableViewController: UITableViewController,CLLocationManagerDelegat
         let region = MKCoordinateRegion(center: coordinate, span: span)
         mapView.setRegion(region, animated: true)
         
-        self.pin = MKPointAnnotation()
         self.pin.coordinate = coordinate
         mapView.addAnnotation(self.pin)
     }
