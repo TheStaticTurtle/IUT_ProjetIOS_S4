@@ -16,6 +16,7 @@ class AddEditTableViewController: UITableViewController,CLLocationManagerDelegat
     
     @IBOutlet weak var mapView: MKMapView!
     var note: NotesModel?
+    var pin: MKPointAnnotation!
     
     let mananager = CLLocationManager()
     override func viewDidLoad() {
@@ -24,6 +25,7 @@ class AddEditTableViewController: UITableViewController,CLLocationManagerDelegat
         if let note = self.note {
             titleTF.text = note.title
             noteTF.text = note.content
+            render(CLLocation(latitude: note.localisation.latitude, longitude: note.localisation.longitude))
         } else {
             mananager.desiredAccuracy = kCLLocationAccuracyBest
             mananager.delegate = self
@@ -46,9 +48,9 @@ class AddEditTableViewController: UITableViewController,CLLocationManagerDelegat
         let region = MKCoordinateRegion(center: coordinate, span: span)
         mapView.setRegion(region, animated: true)
         
-        let pin = MKPointAnnotation()
-        pin.coordinate = coordinate
-        mapView.addAnnotation(pin)
+        self.pin = MKPointAnnotation()
+        self.pin.coordinate = coordinate
+        mapView.addAnnotation(self.pin)
     }
 
     // MARK: - Table view data source
@@ -120,7 +122,7 @@ class AddEditTableViewController: UITableViewController,CLLocationManagerDelegat
             dateFormatterFR.dateFormat = "dd/MM/yyyy";
            
             
-            self.note = NotesModel(title: title, content: content, lastModificationDate: dateFormatterFR.date(from: dateFormatterFR.string(from: Date()))!, localisation: LocationModel(latitude:0, longitude:0))
+            self.note = NotesModel(title: title, content: content, lastModificationDate: dateFormatterFR.date(from: dateFormatterFR.string(from: Date()))!, localisation: LocationModel(latitude:self.pin.coordinate.latitude, longitude:self.pin.coordinate.longitude))
         }
     }
     
