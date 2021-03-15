@@ -32,6 +32,8 @@ class AddEditTableViewController: UITableViewController,CLLocationManagerDelegat
             mananager.requestWhenInUseAuthorization();
             mananager.startUpdatingLocation()
         }
+        
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -39,6 +41,13 @@ class AddEditTableViewController: UITableViewController,CLLocationManagerDelegat
             mananager.stopUpdatingLocation()
             render(location)
         }
+    }
+    
+    @IBAction func userLocatePressed(_ sender: Any) {
+            mananager.desiredAccuracy = kCLLocationAccuracyBest
+            mananager.delegate = self
+            mananager.requestWhenInUseAuthorization();
+            mananager.startUpdatingLocation()
     }
     
     func render(_ location: CLLocation) {
