@@ -37,6 +37,7 @@ class AddEditTableViewController: UITableViewController,CLLocationManagerDelegat
 
         let longTapGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap))
             mapView.addGestureRecognizer(longTapGesture)
+        noteTF.borderStyle = UITextField.BorderStyle.roundedRect
         
     }
     
