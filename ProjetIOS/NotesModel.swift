@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct LocationModel {
+struct LocationModel:Codable {
     var latitude: Double
     var longitude: Double
 }
 
-struct NotesModel {
+struct NotesModel :Codable {
     var title: String;
     var content: String;
     var lastModificationDate: Date;

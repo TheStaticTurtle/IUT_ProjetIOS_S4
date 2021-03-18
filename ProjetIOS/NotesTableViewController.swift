@@ -22,6 +22,14 @@ class NotesTableViewController: UITableViewController {
             NotesModel(title: "TestB", content: "qwertyuiop", lastModificationDate: dateFormatterFR.date(from: "04/03/2021 23:37:56")!, localisation:  LocationModel(latitude:0, longitude:0)),
             NotesModel(title: "TestC", content: "abcdefghij", lastModificationDate: dateFormatterFR.date(from: "25/02/2020 08:00:00")!, localisation:  LocationModel(latitude:0, longitude:0)),
         ]
+        
+        let userDefaults = UserDefaults.standard
+        if let savedNotes = userDefaults.object(forKey: "notes") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedNotes = try? decoder.decode([NotesModel].self, from: savedNotes) {
+                notes = loadedNotes
+            }
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,6 +37,13 @@ class NotesTableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
 
+    func save_to_storage() {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(notes) {
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(encoded, forKey: "notes")
+        }
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -63,10 +78,12 @@ class NotesTableViewController: UITableViewController {
                     // Modification d'un emoji
                     self.notes[selectedIndexPath.row] = note
                     tableView.reloadData()
+                    save_to_storage()
                 } else {
                     // Création d'un emoji
                     self.notes.append(note)
                     tableView.reloadData()
+                    save_to_storage()
                 }
             }
 
@@ -91,6 +108,7 @@ class NotesTableViewController: UITableViewController {
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
+        save_to_storage()
     }
     
 
@@ -100,6 +118,7 @@ class NotesTableViewController: UITableViewController {
         let moved_note = notes.remove(at: fromIndexPath.row)
         notes.insert(moved_note, at: to.row)
         tableView.reloadData()
+        save_to_storage()
     }
     
 
