@@ -20,6 +20,7 @@ class AddEditTableViewController: UITableViewController,CLLocationManagerDelegat
     var coord:CLLocationCoordinate2D?
     
     let mananager = CLLocationManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +28,10 @@ class AddEditTableViewController: UITableViewController,CLLocationManagerDelegat
             titleTF.text = note.title
             noteTF.text = note.content
             render(CLLocation(latitude: note.localisation.latitude, longitude: note.localisation.longitude))
+            pin.coordinate.latitude = note.localisation.latitude
+            pin.coordinate.longitude = note.localisation.longitude
+            mapView.addAnnotation(self.pin)
+
         } else {
             mananager.desiredAccuracy = kCLLocationAccuracyBest
             mananager.delegate = self
