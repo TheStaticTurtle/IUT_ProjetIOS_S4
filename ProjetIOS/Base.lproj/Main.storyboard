@@ -86,6 +86,9 @@
                                                     <accessibility key="accessibilityConfiguration" identifier="titleTF"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editTitle:" destination="h0b-If-uok" eventType="editingDidEnd" id="vm1-9J-sLi"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -162,6 +165,7 @@
                     <connections>
                         <outlet property="mapView" destination="kVR-u0-8Qf" id="1HV-J3-KLF"/>
                         <outlet property="noteTF" destination="oqE-cm-wHe" id="SS6-Pm-UDe"/>
+                        <outlet property="saveButton" destination="FHm-LJ-FOu" id="NsG-qa-U1O"/>
                         <outlet property="titleTF" destination="Vaw-YS-DFd" id="SZX-oI-Jcx"/>
                     </connections>
                 </tableViewController>

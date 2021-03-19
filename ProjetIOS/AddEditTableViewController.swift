@@ -13,6 +13,7 @@ class AddEditTableViewController: UITableViewController,CLLocationManagerDelegat
 
     @IBOutlet weak var titleTF: UITextField!
     @IBOutlet weak var noteTF: UITextField!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var mapView: MKMapView!
     var note: NotesModel?
@@ -39,11 +40,21 @@ class AddEditTableViewController: UITableViewController,CLLocationManagerDelegat
             mananager.startUpdatingLocation()
             render(CLLocation(latitude: 47.640145, longitude: 6.857318))
         }
+        
+        if titleTF.text == ""{
+            saveButton.isEnabled = false
+        }
 
         let longTapGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap))
             mapView.addGestureRecognizer(longTapGesture)
         noteTF.borderStyle = UITextField.BorderStyle.roundedRect
         
+    }
+    
+    @IBAction func editTitle(_ sender: Any) {
+        if titleTF.text != ""{
+            saveButton.isEnabled = true
+        }
     }
     
     @objc func longTap(sender: UIGestureRecognizer){
